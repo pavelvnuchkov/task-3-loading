@@ -28,9 +28,9 @@ public class Main {
 
     public static GameProgress openProgress(String pathFile) {
         GameProgress gameProgress = null;
-        try(ObjectInputStream objectInput = new ObjectInputStream(new FileInputStream(pathFile))) {
+        try (ObjectInputStream objectInput = new ObjectInputStream(new FileInputStream(pathFile))) {
 
-           gameProgress = (GameProgress) objectInput.readObject();
+            gameProgress = (GameProgress) objectInput.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
@@ -39,7 +39,7 @@ public class Main {
     }
 
     public static void openZip(String pathZip, String pathOpen) {
-        try(ZipInputStream zipInput = new ZipInputStream(new FileInputStream(pathZip))) {
+        try (ZipInputStream zipInput = new ZipInputStream(new FileInputStream(pathZip))) {
 
             ZipEntry entry;
             while ((entry = zipInput.getNextEntry()) != null) {
